@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aswanth P K | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0b0f19;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 1px solid #20283a;
+            background: #0b0f19;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #7c9cff;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #aab5ca;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #7c9cff;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 500px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .tag {
+            color: #8da9ff;
+            background: #17223b;
+            display: inline-block;
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 58px);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #7c9cff;
+        }
+
+        .hero h3 {
+            color: #aab5ca;
+            font-size: 21px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #929eb5;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #4169e1;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #6487ff;
+            transform: translateY(-3px);
+        }
+
+        .profile-circle {
+            width: 230px;
+            height: 230px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5478e8, #9a6de0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 65px;
+            font-weight: bold;
+            box-shadow: 0 0 60px rgba(84, 120, 232, 0.2);
+        }
+
+        /* Common Section */
+        section:not(.hero) {
+            padding: 75px 10%;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-title span {
+            color: #7c9cff;
+        }
+
+        .about-text {
+            color: #a3aec2;
+            max-width: 850px;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 10px 22px;
+            background: #151e30;
+            border: 1px solid #293752;
+            border-radius: 8px;
+            color: #b7c8ff;
+            font-size: 14px;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #121a2a;
+            border: 1px solid #25314a;
+            border-radius: 12px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #7c9cff;
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #8da9ff;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #929eb5;
+            font-size: 14px;
+        }
+
+        /* Education */
+        .education-card {
+            background: #121a2a;
+            border-left: 3px solid #7c9cff;
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .education-card p {
+            color: #929eb5;
+            font-size: 14px;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: #121a2a;
+            border: 1px solid #25314a;
+            border-radius: 14px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #a3aec2;
+            margin-bottom: 20px;
+        }
+
+        .contact-links a {
+            color: #8da9ff;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #20283a;
+            color: #748099;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 9px;
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 65px 7%;
+            }
+
+            .profile-circle {
+                width: 160px;
+                height: 160px;
+                font-size: 45px;
+            }
+
+            section:not(.hero) {
+                padding: 55px 7%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Aswanth.</div>
+
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+            <div class="tag">Available for Opportunities</div>
+
+            <h1>Hello, I'm <span>Aswanth P K</span></h1>
+
+            <h3>Software Developer | Python Enthusiast</h3>
+
+            <p>
+                A Computer Science graduate interested in software
+                development, artificial intelligence and building
+                practical solutions to real-world problems.
+                I enjoy learning new technologies and turning
+                ideas into working applications.
+            </p>
+
+            <a href="#projects" class="btn">Explore My Work →</a>
+        </div>
+
+        <div class="profile-circle">
+            AP
+        </div>
+
+    </section>
+
+    <!-- About -->
+    <section id="about">
+
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <p class="about-text">
+            I'm Aswanth P K, a Computer Science and Engineering
+            graduate with an interest in software engineering,
+            Python development and Artificial Intelligence.
+
+            I have experience working with technologies such as
+            Python, Flask, MySQL and machine learning frameworks.
+            I'm continuously improving my technical skills,
+            exploring new concepts and working on projects that
+            help me grow as a developer.
+        </p>
+
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+
+        <div class="skills-container">
+            <div class="skill">Python</div>
+            <div class="skill">C</div>
+            <div class="skill">C++</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Flask</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">NLP</div>
+            <div class="skill">OpenCV</div>
+            <div class="skill">Git & GitHub</div>
+        </div>
+
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>Medical Symptom Analyzer</h3>
+                <p>
+                    A web-based application that analyzes user-provided
+                    symptoms and predicts possible diseases using
+                    NLP and machine learning techniques.
+                    Built using Python, Flask, BioBERT and MySQL.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Emotion Recognition System</h3>
+                <p>
+                    An application that detects and recognizes
+                    human facial emotions using computer vision
+                    and deep learning technologies.
+                    Built using Python, DeepFace and TensorFlow.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Silent Speak</h3>
+                <p>
+                    A sign language communication concept designed
+                    to help bridge communication gaps using
+                    technology.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Vehicle Tracking System</h3>
+                <p>
+                    A project concept focused on vehicle tracking
+                    and monitoring using embedded systems
+                    and Arduino.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+
+        <h2 class="section-title">My <span>Education</span></h2>
+
+        <div class="education-card">
+            <h3>B.Tech – Computer Science and Engineering</h3>
+            <p>KMCT Institute of Emerging Technology and Management</p>
+            <p>2022 – 2026</p>
+        </div>
+
+        <div class="education-card">
+            <h3>Diploma – Computer Engineering</h3>
+            <p>Government Polytechnic College, Westhill</p>
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+
+        <div class="contact-box">
+
+            <p>
+                Interested in collaborating or discussing
+                technology? Feel free to connect with me.
+            </p>
+
+            <div class="contact-links">
+                <a href="mailto:YOUR_EMAIL@example.com">Email</a>
+
+                <a href="https://github.com/xswanth" target="_blank">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/" target="_blank">
+                    LinkedIn
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Aswanth P K. All Rights Reserved.
+        <br>
+        <a href="../index.html"
+           style="color:#8da9ff; text-decoration:none;">
+            ← Back to Team Portfolio
+        </a>
+    </footer>
+
+</body>
+</html>
