@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Developer Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0b0f19;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            border-bottom: 1px solid #20283a;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #7c9cff;
+        }
+
+        nav a {
+            color: #b8c1d6;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #7c9cff;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 85px 20px 65px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #17223b;
+            color: #8eacff;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 60px);
+            font-weight: 750;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+
+        .hero h1 span {
+            color: #7c9cff;
+        }
+
+        .hero p {
+            color: #9ca9c2;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 30px 8% 90px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #8995ad;
+            font-size: 14px;
+        }
+
+        /* Member Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .member-card {
+            background: #121a2a;
+            border: 1px solid #25314a;
+            border-radius: 16px;
+            padding: 30px 22px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            border-color: #7c9cff;
+            box-shadow: 0 12px 35px rgba(60, 100, 220, 0.12);
+        }
+
+        .avatar {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5478e8, #9a6de0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            color: white;
+        }
+
+        .member-card h3 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .role {
+            color: #8da9ff;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #929eb5;
+            font-size: 13px;
+            line-height: 1.7;
+            min-height: 44px;
+            margin-bottom: 22px;
+        }
+
+        .view-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #4169e1;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background: #6487ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #20283a;
+            color: #748099;
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            nav {
+                padding: 20px 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 65px 20px 45px;
+            }
+
+            .team-section {
+                padding: 20px 5% 60px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">DevTeam.</div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#team">Our Team</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="tag">✦ Meet Our Team</div>
+
+        <h1>
+            Six Minds.<br>
+            One <span>Vision.</span>
+        </h1>
+
+        <p>
+            We are a team of aspiring developers passionate about
+            technology, innovation and building meaningful digital
+            experiences. Get to know the people behind our work.
+        </p>
+    </section>
+
+    <!-- Team Members -->
+    <section class="team-section" id="team">
+
+        <div class="section-heading">
+            <h2>Meet the Developers</h2>
+            <p>Explore our individual portfolios and get to know us.</p>
+        </div>
+
+        <div class="team-grid">
+
+            <!-- Member 1 -->
+            <div class="member-card">
+                <div class="avatar">M1</div>
+                <h3>Member One</h3>
+                <div class="role">Software Developer</div>
+                <p class="description">
+                    Passionate about building software and exploring new technologies.
+                </p>
+                <a href="members/member-1.html" class="view-btn">
+                    View Portfolio →
+                </a>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="member-card">
+                <div class="avatar">M2</div>
+                <h3>Member Two</h3>
+                <div class="role">Web Developer</div>
+                <p class="description">
+                    Interested in creating modern and responsive web experiences.
+                </p>
+                <a href="members/member-2.html" class="view-btn">
+                    View Portfolio →
+                </a>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="member-card">
+                <div class="avatar">M3</div>
+                <h3>Member Three</h3>
+                <div class="role">Python Developer</div>
+                <p class="description">
+                    Enjoys programming, problem-solving and backend development.
+                </p>
+                <a href="members/member-3.html" class="view-btn">
+                    View Portfolio →
+                </a>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="member-card">
+                <div class="avatar">M4</div>
+                <h3>Member Four</h3>
+                <div class="role">UI/UX Designer</div>
+                <p class="description">
+                    Focused on designing intuitive and user-friendly interfaces.
+                </p>
+                <a href="members/member-4.html" class="view-btn">
+                    View Portfolio →
+                </a>
+            </div>
+
+            <!-- Member 5 -->
+            <div class="member-card">
+                <div class="avatar">M5</div>
+                <h3>Member Five</h3>
+                <div class="role">Full Stack Developer</div>
+                <p class="description">
+                    Interested in developing complete web applications.
+                </p>
+                <a href="members/member-5.html" class="view-btn">
+                    View Portfolio →
+                </a>
+            </div>
+
+            <!-- Member 6 -->
+            <div class="member-card">
+                <div class="avatar">M6</div>
+                <h3>Member Six</h3>
+                <div class="role">AI/ML Enthusiast</div>
+                <p class="description">
+                    Exploring artificial intelligence and machine learning.
+                </p>
+                <a href="members/member-6.html" class="view-btn">
+                    View Portfolio →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 DevTeam. Built collaboratively with Git & GitHub.
+    </footer>
+
+</body>
+</html>
