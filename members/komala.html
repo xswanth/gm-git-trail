@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komala Sirigirisetti – Software Developer</title>
+<meta name="description" content="Portfolio of Komala Sirigirisetti, a Computer Science graduate building full-stack web apps with Python, Flask and React.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============ EDIT-ME GUIDE ============
+     1. Search for "TODO" and replace each placeholder (email, GitHub, LinkedIn, projects).
+     2. Colours live in the :root block below.
+     3. To host free: push this file to a GitHub repo and enable GitHub Pages.
+  ======================================== */
+  :root {
+    --bg: #F2F4F8;
+    --surface: #FFF+FFF;
+    --ink: #16213E;
+    --muted: #55607A;
+    --line: #D5DAE5;
+    --accent: #E8A200;
+    --accent-ink: #16213E;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0F1526;
+      --surface: #182038;
+      --ink: #EEF1F8;
+      --muted: #A3ACC4;
+      --line: #2B3556;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 1.0625rem/1.65 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { font: 700 1.05rem var(--display); text-decoration: none; }
+  nav { display: flex; gap: 22px; }
+  nav a { text-decoration: none; color: var(--muted); font-size: .95rem; }
+  nav a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 96px 0 72px; }
+  .hero h1 {
+    font: 800 clamp(3rem, 10vw, 7.5rem)/.95 var(--display);
+    letter-spacing: -0.035em;
+    margin: 0 0 32px;
+    max-width: 11ch;
+  }
+  .hero h1 span { display: block; }
+  .hero h1 .second { background: linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%); width: fit-content; color: var(--ink); }
+  .hero p { max-width: 54ch; font-size: 1.2rem; color: var(--muted); margin: 0 0 32px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 8px;
+    font: 500 1rem var(--body); text-decoration: none;
+    border: 2px solid var(--ink);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { filter: brightness(1.06); }
+  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+
+  /* Sections */
+  section.block { padding: 64px 0; border-top: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+  .grid > h2 { font: 700 1.5rem var(--display); margin: 0; letter-spacing: -0.01em; }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; gap: 20px; }
+    nav { gap: 14px; }
+    .hero { padding-top: 56px; }
+  }
+
+  /* About */
+  .about p { margin: 0 0 1em; max-width: 62ch; }
+
+  /* Skills */
+  .skills { display: grid; gap: 22px; }
+  .skills h3 { font: 700 1rem var(--display); margin: 0 0 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .chips li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; font-size: .95rem; }
+
+  /* Projects */
+  .projects { display: grid; gap: 28px; }
+  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 26px; }
+  .project h3 { font: 700 1.25rem var(--display); margin: 0 0 6px; }
+  .project p { margin: 0 0 14px; color: var(--muted); max-width: 60ch; }
+  .project .chips li { font-size: .85rem; padding: 2px 12px; background: var(--bg); }
+  .project .links { margin-top: 16px; display: flex; gap: 18px; }
+  .project .links a { font-weight: 500; text-underline-offset: 4px; }
+
+  /* Timeline (real sequence: dates) */
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
+  .timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 24px; }
+  .timeline time { color: var(--muted); font-size: .95rem; padding-top: 3px; }
+  .timeline h3 { font: 700 1.1rem var(--display); margin: 0; }
+  .timeline .org { color: var(--muted); margin: 0 0 8px; }
+  .timeline ul { margin: 0; padding-left: 1.1em; max-width: 60ch; }
+  @media (max-width: 560px) { .timeline li { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Contact */
+  .contact p { font-size: 1.25rem; max-width: 40ch; margin: 0 0 22px; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  footer { padding: 36px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Komala S.</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero" aria-labelledby="name">
+      <h1 id="name"><span>Komala</span><span class="second">Sirigirisetti</span></h1>
+      <p>I’m a Computer Science graduate who builds full-stack web apps with Python, Flask and React, and I’m looking for my first software developer role.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+        <!-- TODO: add your resume PDF next to this file and uncomment the line below -->
+        <!-- <a class="btn ghost" href="resume.pdf" download>Download résumé</a> -->
+      </div>
+    </section>
+
+    <section class="block" id="about" aria-labelledby="about-h">
+      <div class="grid">
+        <h2 id="about-h">About</h2>
+        <div class="about">
+          <p>I finished my B.Tech in Computer Science Engineering at Avanthi Institute of Engineering &amp; Technology, Anakapalle, in 2026. I’m based in Visakhapatnam, Andhra Pradesh.</p>
+          <p>I like turning an idea into something people can click, from the Flask API and SQL tables underneath to the React screens on top. I also work with machine learning and have completed internships in web development and applied AI.</p>
+          <p>I’m open to roles across India and to remote positions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="skills" aria-labelledby="skills-h">
+      <div class="grid">
+        <h2 id="skills-h">Skills</h2>
+        <div class="skills">
+          <div>
+            <h3>Languages</h3>
+            <ul class="chips"><li>Python</li><li>JavaScript</li><li>SQL</li></ul>
+          </div>
+          <div>
+            <h3>Web</h3>
+            <ul class="chips"><li>React.js</li><li>Flask</li><li>HTML &amp; CSS</li><li>REST APIs</li></ul>
+          </div>
+          <div>
+            <h3>Data and AI</h3>
+            <ul class="chips"><li>Machine Learning</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="projects" aria-labelledby="projects-h">
+      <div class="grid">
+        <h2 id="projects-h">Projects</h2>
+        <div class="projects">
+
+          <!-- TODO: Replace each project below with your real work. Copy the <article> to add more. -->
+          <article class="project">
+            <h3>Project name</h3>
+            <p>One or two sentences: what problem it solves, who it’s for, and what you built. Mention a result if you have one, such as users, speed or accuracy.</p>
+            <ul class="chips"><li>React.js</li><li>Flask</li><li>SQL</li></ul>
+            <div class="links">
+              <a href="https://github.com/your-username/project-one">Source code</a>
+              <a href="https://example.com">Live demo</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <h3>Second project name</h3>
+            <p>Describe the hardest part you solved. Hiring managers like to see one clear technical decision and why you made it.</p>
+            <ul class="chips"><li>Python</li><li>Machine Learning</li></ul>
+            <div class="links">
+              <a href="https://github.com/your-username/project-two">Source code</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="experience" aria-labelledby="exp-h">
+      <div class="grid">
+        <h2 id="exp-h">Experience and education</h2>
+        <ol class="timeline">
+          <li>
+            <time>Feb – Mar 2026</time>
+            <div>
+              <h3>AI Transform Intern</h3>
+              <p class="org">TechSaksham / Edunet Foundation</p>
+              <ul>
+                <!-- TODO: replace with what you actually did and built -->
+                <li>Describe the AI or ML task you worked on and the tools you used.</li>
+                <li>Add one measurable outcome if you can.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>Nov – Dec 2025</time>
+            <div>
+              <h3>Web Development Intern</h3>
+              <p class="org">EduSkills Foundation</p>
+              <ul>
+                <li>Describe the pages or features you built and the stack you used.</li>
+                <li>Add one thing you shipped or improved.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>Sep 2022 – Jun 2026</time>
+            <div>
+              <h3>B.Tech, Computer Science Engineering</h3>
+              <p class="org">Avanthi Institute of Engineering &amp; Technology, Anakapalle</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block contact" id="contact" aria-labelledby="contact-h">
+      <div class="grid">
+        <h2 id="contact-h">Contact</h2>
+        <div>
+          <p>Have a role, an internship or a project in mind? Send me a message.</p>
+          <div class="contact-links">
+            <!-- TODO: replace with your real details -->
+            <a class="btn primary" href="mailto:your-email@example.com">Email me</a>
+            <a class="btn ghost" href="https://github.com/your-username">GitHub</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/your-username">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Komala Sirigirisetti. Built with plain HTML and CSS.</div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+<p>komala</p>
+</html>
