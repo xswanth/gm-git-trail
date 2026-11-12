@@ -1,0 +1,939 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIVAPRASAD | Data Engineer Portfolio</title>
+
+    <style>
+
+        /* GENERAL STYLING */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #263445;
+            line-height: 1.7;
+            background: #ffffff;
+        }
+
+        /* NAVIGATION BAR */
+
+        header {
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+
+            background: linear-gradient(
+                135deg,
+                #142b49,
+                #1e3a5f
+            );
+
+            border-bottom: 2px solid #28547e;
+        }
+
+        header h2 {
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 7px 10px;
+            border-radius: 4px;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            background-color: #2875a8;
+        }
+
+        /* PROFILE SECTION */
+
+        .profile {
+            min-height: 430px;
+            padding: 65px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #e8f3ff,
+                #f1f5ff,
+                #e7f7f8
+            );
+        }
+
+        .profile-content {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .subtitle {
+            color: #0876a8;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .profile h1 {
+            color: #17365d;
+            font-size: 46px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .profile h3 {
+            color: #0876a8;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .profile-content > p:not(.subtitle) {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            font-size: 14px !important;
+            color: #475569;
+        }
+
+        .profile-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 18px;
+        }
+
+        .profile-links a {
+            color: #086b9b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .profile-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* COMMON SECTION STYLING */
+
+        section.content {
+            padding: 48px 10%;
+            text-align: center;
+        }
+
+        section h2 {
+            color: #17365d;
+            font-size: 26px;
+            margin-bottom: 25px;
+            display: inline-block;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2583b8;
+        }
+
+        section p {
+            margin-bottom: 12px;
+        }
+
+        /* DIFFERENT SECTION GRADIENTS */
+
+        #about {
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #f0f7ff
+            );
+        }
+
+        #skills {
+            background: linear-gradient(
+                135deg,
+                #edf9f5,
+                #f7fcfa
+            );
+        }
+
+        #experience {
+            background: linear-gradient(
+                135deg,
+                #fff8ed,
+                #fffdf7
+            );
+        }
+
+        #projects {
+            background: linear-gradient(
+                135deg,
+                #f1f0ff,
+                #faf9ff
+            );
+        }
+
+        #education {
+            background: linear-gradient(
+                135deg,
+                #eaf7fc,
+                #f7fcff
+            );
+        }
+
+        #certifications {
+            background: linear-gradient(
+                135deg,
+                #fff2f3,
+                #fffafa
+            );
+        }
+
+        #achievements {
+            background: linear-gradient(
+                135deg,
+                #f4f8e9,
+                #fbfdf6
+            );
+        }
+
+        #languages {
+            background: linear-gradient(
+                135deg,
+                #f0f4ff,
+                #fafbff
+            );
+        }
+
+        #contact {
+            background: linear-gradient(
+                135deg,
+                #eaf5f7,
+                #f5fbfc
+            );
+        }
+
+        /* PROFESSIONAL SUMMARY */
+
+        #about p {
+            max-width: 950px;
+            margin: 0 auto 15px;
+            text-align: center;
+        }
+
+        /* TECHNICAL SKILLS */
+
+        .skill-list {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .skill-group {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid #d9e9e1;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .skill-group strong {
+            color: #17634e;
+        }
+
+        /* EXPERIENCE, PROJECTS AND EDUCATION */
+
+        .detail {
+            max-width: 900px;
+            margin: 0 auto 25px;
+            padding: 20px 25px;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid rgba(100,116,139,0.15);
+            border-radius: 7px;
+            text-align: left;
+        }
+
+        .detail h3 {
+            color: #244d73;
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .detail p {
+            margin-bottom: 8px;
+        }
+
+        .date {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .detail ul {
+            padding-left: 22px;
+            margin-top: 10px;
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* CERTIFICATIONS AND ACHIEVEMENTS */
+
+        .simple-list {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            padding-left: 25px;
+        }
+
+        .simple-list li {
+            margin-bottom: 10px;
+        }
+
+        /* LANGUAGES */
+
+        #languages p {
+            font-weight: 600;
+            color: #334155;
+        }
+
+        /* CONTACT */
+
+        .contact-details {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-details p {
+            margin-bottom: 12px;
+        }
+
+        .contact-details a {
+            color: #0876a8;
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 20px;
+            background: #17365d;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .profile {
+                padding: 50px 6%;
+            }
+
+            .profile h1 {
+                font-size: 34px;
+            }
+
+            .profile h3 {
+                font-size: 19px;
+            }
+
+            .profile-content > p:not(.subtitle) {
+                font-size: 15px;
+            }
+
+            section.content {
+                padding: 35px 6%;
+            }
+
+            section h2 {
+                font-size: 23px;
+            }
+
+            .detail {
+                padding: 16px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <header>
+
+        <h2>SIVAPRASAD</h2>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- PROFILE SECTION -->
+
+    <section class="profile">
+
+        <div class="profile-content">
+
+            <p class="subtitle">PERSONAL PORTFOLIO</p>
+
+            <h1>SIVAPRASAD</h1>
+
+            <h3>Aspiring Data Engineer</h3>
+
+            <p>
+                Computer Science Engineering student with hands-on
+                training in Data Engineering and practical experience
+                building data pipelines using Python, SQL, PySpark
+                and Databricks.
+            </p>
+
+            <p class="contact-info">
+                Calicut, Kerala |
+                +91 9544457950 |
+                sivaprasadappu246@gmail.com
+            </p>
+
+            <div class="profile-links">
+
+                <a href="https://www.linkedin.com/in/sivaprasad246"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+                <a href="https://github.com/Sivaprasad1409"
+                   target="_blank">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFESSIONAL SUMMARY -->
+
+    <section class="content" id="about">
+
+        <h2>Professional Summary</h2>
+
+        <p>
+            Computer Science Engineering student with hands-on
+            training in data engineering and practical experience
+            building data pipelines using Python, SQL, PySpark,
+            and Databricks.
+        </p>
+
+        <p>
+            Experienced in data ingestion, ETL processing,
+            data cleaning, validation, Delta Lake, Delta Live Tables,
+            and Medallion Architecture. Developed Silver-layer
+            transformations with SCD Type 2 and Gold-layer KPI
+            tables using SQL and window functions.
+        </p>
+
+        <p>
+            Seeking a Junior Data Engineer role focused on data
+            pipeline support, data validation, ETL/ELT workflows,
+            monitoring, and production operations.
+        </p>
+
+    </section>
+
+
+    <!-- TECHNICAL SKILLS -->
+
+    <section class="content" id="skills">
+
+        <h2>Technical Skills</h2>
+
+        <div class="skill-list">
+
+            <div class="skill-group">
+                <strong>Programming:</strong>
+                Python, SQL, Java, C, C++
+            </div>
+
+            <div class="skill-group">
+                <strong>Data Engineering:</strong>
+                ETL, ELT, Data Ingestion, Data Cleaning,
+                Data Validation, Data Transformation, Data Pipelines
+            </div>
+
+            <div class="skill-group">
+                <strong>Big Data & Data Platforms:</strong>
+                PySpark, Apache Spark, Databricks, Delta Lake,
+                Delta Live Tables (DLT), Unity Catalog
+            </div>
+
+            <div class="skill-group">
+                <strong>Databases:</strong>
+                MySQL, SQLite
+            </div>
+
+            <div class="skill-group">
+                <strong>Tools & Platforms:</strong>
+                Git, GitHub, VS Code, PyCharm, Linux
+            </div>
+
+            <div class="skill-group">
+                <strong>Web Technologies:</strong>
+                HTML, CSS, JavaScript
+            </div>
+
+            <div class="skill-group">
+                <strong>Core Concepts:</strong>
+                DBMS, Data Structures, Object-Oriented Programming,
+                Operating Systems
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE AND TRAINING -->
+
+    <section class="content" id="experience">
+
+        <h2>Experience & Training</h2>
+
+        <div class="detail">
+
+            <h3>Data Engineer Training – CodersBrain</h3>
+
+            <p class="date">
+                December 2025 – January 2026
+            </p>
+
+            <ul>
+
+                <li>
+                    Assisted in developing data pipelines using
+                    Python, PySpark, SQL, and Databricks for
+                    data ingestion and transformation.
+                </li>
+
+                <li>
+                    Performed data cleaning, validation, and
+                    ETL processing using Delta Lake to support
+                    structured analytics workflows.
+                </li>
+
+                <li>
+                    Built a healthcare data pipeline using
+                    Databricks, PySpark, and Delta Live Tables
+                    following Medallion Architecture.
+                </li>
+
+                <li>
+                    Developed Silver-layer tables with data
+                    cleaning, transformations, and SCD Type 2
+                    history tracking.
+                </li>
+
+                <li>
+                    Created Gold-layer KPI tables using SQL
+                    and window functions for healthcare analytics.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h3>Cyber Security and Ethical Hacking Internship</h3>
+
+            <p class="date">
+                QNAYDS LLP / AICTE – July 2024
+            </p>
+
+            <ul>
+
+                <li>
+                    Gained hands-on exposure to security tools,
+                    threat analysis, and professional cybersecurity
+                    workflows.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h3>Foundation of AI Internship</h3>
+
+            <p class="date">
+                Edunet Foundation / Microsoft – April to May
+            </p>
+
+            <ul>
+
+                <li>
+                    Completed an internship focused on artificial
+                    intelligence fundamentals and practical applications.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="content" id="projects">
+
+        <h2>Projects</h2>
+
+        <div class="detail">
+
+            <h3>1. Healthcare Data Pipeline</h3>
+
+            <p>
+                <strong>Technologies:</strong>
+                Databricks, PySpark, Delta Live Tables (DLT),
+                SQL, Unity Catalog, Delta Lake
+            </p>
+
+            <ul>
+
+                <li>
+                    Built an end-to-end healthcare data pipeline
+                    using Medallion Architecture for structured
+                    data processing.
+                </li>
+
+                <li>
+                    Implemented data cleaning, transformation,
+                    validation, and ETL workflows in the Silver layer.
+                </li>
+
+                <li>
+                    Implemented SCD Type 2 history tracking
+                    and created Gold-layer KPI tables using SQL
+                    and window functions.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h3>
+                2. Face Detection and Recognition Using Drone (FDRD)
+            </h3>
+
+            <p>
+                <strong>Technologies:</strong>
+                Python, OpenCV, SQLite, Raspberry Pi,
+                Drone Camera, APM 2.8
+            </p>
+
+            <ul>
+
+                <li>
+                    Implemented real-time computer vision-based
+                    face detection and recognition with SQLite
+                    data logging.
+                </li>
+
+                <li>
+                    Developed an autonomous drone system with
+                    vertical takeoff and stable flight using
+                    the APM 2.8 flight controller.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h3>3. Automated Car Parking System (ACPS)</h3>
+
+            <p>
+                <strong>Technologies:</strong>
+                Arduino Uno, IR Sensors, Servo Motor, LCD Display
+            </p>
+
+            <ul>
+
+                <li>
+                    Developed an automated parking system using
+                    IR sensors to detect vehicle presence and
+                    parking availability.
+                </li>
+
+                <li>
+                    Implemented automated gate control using
+                    a servo motor and displayed parking-slot
+                    status on an LCD.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section class="content" id="education">
+
+        <h2>Education</h2>
+
+        <div class="detail">
+
+            <h3>
+                B.Tech in Computer Science and Engineering
+            </h3>
+
+            <p>
+                KMCT Institute of Engineering and Technology,
+                Mukkam, Kerala
+            </p>
+
+            <p class="date">
+                August 2022 – Present | SGPA: 6.5/10
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h3>
+                Diploma in Computer Science and Engineering
+            </h3>
+
+            <p>
+                Kerala Government Polytechnic College,
+                Westhill, Kerala
+            </p>
+
+            <p class="date">
+                2019 – 2022 | CGPA: 7.09/10
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h3>Class XII</h3>
+
+            <p>
+                CKG MHSS, Thikkodi, Kerala
+            </p>
+
+            <p class="date">
+                2019 | 73%
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h3>Class X</h3>
+
+            <p>
+                Directorate of Technical Education
+            </p>
+
+            <p class="date">
+                83%
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATIONS -->
+
+    <section class="content" id="certifications">
+
+        <h2>Certifications</h2>
+
+        <ul class="simple-list">
+
+            <li>
+                Cyber Security and Ethical Hacking – QNAYDS LLP
+            </li>
+
+            <li>
+                Cyber Security Workshop – Techmaghi in association
+                with Tryst'24, IIT Delhi
+            </li>
+
+            <li>
+                Artificial Intelligence Bootcamp – NIELT Calicut
+            </li>
+
+            <li>
+                Foundation of AI – Edunet Foundation
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+
+    <section class="content" id="achievements">
+
+        <h2>Achievements</h2>
+
+        <ul class="simple-list">
+
+            <li>
+                NCC Corporal (CPL) – Holder of NCC B and C Certificates.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- LANGUAGES -->
+
+    <section class="content" id="languages">
+
+        <h2>Languages</h2>
+
+        <p>
+            Malayalam | English | Tamil
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="content" id="contact">
+
+        <h2>Contact Information</h2>
+
+        <div class="contact-details">
+
+            <p>
+                <strong>Email:</strong>
+
+                <a href="mailto:sivaprasadappu246@gmail.com">
+                    sivaprasadappu246@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                +91 9544457950
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                Calicut, Kerala
+            </p>
+
+            <p>
+                <strong>LinkedIn:</strong>
+
+                <a href="https://www.linkedin.com/in/sivaprasad246"
+                   target="_blank">
+                    linkedin.com/in/sivaprasad246
+                </a>
+            </p>
+
+            <p>
+                <strong>GitHub:</strong>
+
+                <a href="https://github.com/Sivaprasad1409"
+                   target="_blank">
+                    github.com/Sivaprasad1409
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 SIVAPRASAD. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
