@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Krishna T | Portfolio</title>
+    <style>
+        :root {
+            --bg: #09111d;
+            --bg-2: #111b2f;
+            --card: rgba(17, 27, 47, 0.92);
+            --card-alt: rgba(11, 17, 29, 0.85);
+            --primary: #7ba7ff;
+            --secondary: #9ed3ff;
+            --text: #eaf2ff;
+            --muted: #b6c3dd;
+            --line: rgba(143, 169, 255, 0.23);
+            --accent: #7af0d4;
+            --shadow: rgba(22, 40, 79, 0.45);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(123, 167, 255, 0.18), transparent 20%),
+                radial-gradient(circle at bottom right, rgba(122, 240, 212, 0.12), transparent 25%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            width: min(1100px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            border-bottom: 1px solid var(--line);
+            background: rgba(9, 17, 29, 0.72);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 74px;
+        }
+
+        .brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.95rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .hero {
+            padding: 70px 0 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 0.85fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: clamp(2.3rem, 5vw, 4.3rem);
+            line-height: 1.06;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .subtitle {
+            margin: 0;
+            max-width: 650px;
+            font-size: 1.04rem;
+            color: var(--muted);
+        }
+
+        .cta-row {
+            margin-top: 28px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover { transform: translateY(-1px); }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--primary), #8c7bff);
+            color: white;
+            box-shadow: 0 14px 30px rgba(123, 167, 255, 0.28);
+        }
+
+        .btn.secondary {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--line);
+            color: var(--text);
+        }
+
+        .profile-card {
+            background: linear-gradient(180deg, rgba(17, 27, 47, 0.94), rgba(10, 17, 29, 0.96));
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 28px 22px;
+            box-shadow: 0 25px 60px var(--shadow);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 18px;
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), #8d6ff2, var(--accent));
+            color: #fff;
+            box-shadow: 0 18px 40px rgba(123, 167, 255, 0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-card h3 {
+            margin: 0 0 12px;
+            text-align: center;
+            font-size: 1.45rem;
+        }
+
+        .profile-card ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .profile-card li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .profile-card li:last-child { border-bottom: none; }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        section {
+            padding: 30px 0;
+        }
+
+        .section-title {
+            margin: 0 0 22px;
+            font-size: clamp(1.7rem, 2vw, 2.35rem);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 15px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        .panel h3 {
+            margin: 0 0 16px;
+            font-size: 1.15rem;
+        }
+
+        .panel ul, .panel ol {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted);
+            list-style: disc;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(123, 167, 255, 0.08);
+            border: 1px solid rgba(123, 167, 255, 0.18);
+            color: var(--secondary);
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 18px;
+        }
+
+        .edu-item {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px 20px;
+        }
+
+        .edu-item h4 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .meta {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 9px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-alt);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 22px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .project-card h4 {
+            margin: 0;
+            font-size: 1.15rem;
+        }
+
+        .project-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .project-card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .cert-item {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .cert-item h4 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+        }
+
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 26px;
+            align-items: center;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 24px 20px;
+        }
+
+        .contact-card a {
+            color: var(--secondary);
+        }
+
+        footer {
+            padding: 30px 0 50px;
+            color: var(--muted);
+            text-align: center;
+            border-top: 1px solid var(--line);
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .section-grid,
+            .projects-grid,
+            .cert-grid,
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                gap: 10px 18px;
+                justify-content: flex-start;
+            }
+
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+                padding: 18px 0;
+            }
+
+            .hero {
+                padding-top: 42px;
+            }
+
+            .cta-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="container">
+            <nav>
+                <div class="brand">ABHINAV</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                    <a href="../index.html">Team</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-grid">
+                <div>
+                    <div class="eyebrow">Aspiring Computer Engineer</div>
+                    <h1>Hello, I'm <span class="highlight">Abhinav Krishna T</span></h1>
+                    <p class="subtitle">
+                        I’m a B.Tech student with a strong interest in computer science, problem solving,
+                        and building digital solutions using C, Python, and modern web technologies.
+                    </p>
+                    <div class="cta-row">
+                        <a class="btn primary" href="#projects">View Projects</a>
+                        <a class="btn secondary" href="#contact">Contact Me</a>
+                    </div>
+                </div>
+
+                <aside class="profile-card">
+                    <div class="avatar">
+                        <img src="./abhinav-profile.png" alt="Abhinav Krishna T" />
+                    </div>
+                    <h3>Profile Snapshot</h3>
+                    <ul>
+                        <li><span class="dot"></span><span>+91 8606412849</span></li>
+                        <li><span class="dot"></span><span>abhinavanil18@gmail.com</span></li>
+                        <li><span class="dot"></span><span>Malappuram, Kerala</span></li>
+                        <li><span class="dot"></span><span>linkedin.com/in/abhinavkrishnat</span></li>
+                        <li><span class="dot"></span><span>github.com/abhinavkrx</span></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-grid">
+                <div class="panel">
+                    <h3>Core Strength</h3>
+                    <p style="margin: 0; color: var(--muted);">
+                        I enjoy turning ideas into practical, user-focused solutions and working on projects
+                        that improve efficiency, communication, and accessibility.
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Communication</li>
+                        <li>Leadership</li>
+                        <li>Project management</li>
+                        <li>Teamwork</li>
+                        <li>Time management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="edu-item">
+                    <h4>B.Tech in Computer Science Engineering</h4>
+                    <div class="meta">KMCT Institute of Emerging Technology & Management, Kozhikode | 2022 – 2026</div>
+                    <div>CGPA: 7.09/10</div>
+                </div>
+
+                <div class="edu-item">
+                    <h4>Diploma in Computer Engineering</h4>
+                    <div class="meta">AKNM Government Polytechnic College, Thirurangadi | 2020 – 2023</div>
+                    <div>CGPA: 7.54/10</div>
+                </div>
+
+                <div class="edu-item">
+                    <h4>Class XII – HSE (Kerala Board)</h4>
+                    <div class="meta">SNMHSS, Parappanangadi | 2020</div>
+                    <div>Percentage: 81%</div>
+                </div>
+
+                <div class="edu-item">
+                    <h4>Class X – SSLC (Kerala Board)</h4>
+                    <div class="meta">SNMHSS, Parappanangadi | 2018</div>
+                    <div>Percentage: 98.79%</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Academic Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h4>Arduino Automated Car Parking System</h4>
+                    <p>
+                        Designed an Arduino-based automated parking solution that reduced manual intervention and improved parking efficiency.
+                    </p>
+                    <ul>
+                        <li>Increased average parking capacity by 12 cars/hour.</li>
+                        <li>Improved space allocation accuracy to 95%.</li>
+                        <li>Reduced prototype cost by around 40% versus commercial options.</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                    <h4>Learning Management System (LMS)</h4>
+                    <p>
+                        Built a web-based LMS to help teachers and students collaborate more effectively.
+                    </p>
+                    <ul>
+                        <li>Enabled resource sharing and messaging.</li>
+                        <li>Reduced communication delays by 50%.</li>
+                        <li>Improved content retrieval speed by 35% through structured database design.</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                    <h4>Restaurant Management System</h4>
+                    <p>
+                        Created a management system for billing and staff attendance with streamlined operations.
+                    </p>
+                    <ul>
+                        <li>Achieved 98% accuracy in attendance and billing processes.</li>
+                        <li>Reduced scheduling conflicts by 60%.</li>
+                        <li>Improved order processing speed by 30%.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Workshops & Training</h2>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <h4>Cyber Security and Ethical Hacking</h4>
+                    <div class="meta">QNAYDS LLP / AICTE | July 2024</div>
+                    <p style="margin: 0; color: var(--muted);">
+                        Gained exposure to security tools, cyber threats, and professional workflows in ethical hacking.
+                    </p>
+                </div>
+
+                <div class="cert-item">
+                    <h4>App Development (Flutter)</h4>
+                    <div class="meta">GENZEE Technologies | July 2025</div>
+                    <p style="margin: 0; color: var(--muted);">
+                        Learned the fundamentals of app development using the Flutter SDK.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Courses & Certifications</h2>
+            <div class="panel">
+                <ul>
+                    <li>Cybersecurity Workshop – Techmaghi & IIT Delhi (Tryst'24)</li>
+                    <li>Cybersecurity and Ethical Hacking – QNAYDS LLP</li>
+                    <li>Artificial Intelligence Bootcamp – NIT Calicut</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-wrap">
+                <div class="contact-card">
+                    <p style="margin-top: 0; color: var(--muted);">
+                        I’m actively looking for opportunities to build practical projects, learn from experienced teams,
+                        and contribute to impactful software engineering work.
+                    </p>
+                    <p><strong>Email:</strong> <a href="mailto:abhinavanil18@gmail.com">abhinavanil18@gmail.com</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+918606412849">+91 8606412849</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/abhinavkrishnat" target="_blank" rel="noreferrer">linkedin.com/in/abhinavkrishnat</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/abhinavkrx" target="_blank" rel="noreferrer">github.com/abhinavkrx</a></p>
+                </div>
+
+                <div class="panel">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>English</li>
+                        <li>Malayalam</li>
+                        <li>Hindi</li>
+                        <li>Tamil</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Abhinav Krishna T • Built with passion for technology
+    </footer>
+</body>
+</html>
